@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery by Hamad Khalaf</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+
+</head>
+<body>
+    <table class="main">
+    
+        <td class="fixed">
+            <div class="nav">
+                <h3 class="title">Gallery</h3>
+                <ul>
+                    <li class="active-list" data-filter="*">All</li>
+                    {% for name in data[0] %}
+                    <li data-filter=".{{name}}">{{name}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </td>
+        <td>
+        <div class="imgs">
+            {% for item in data[1] %}
+            <div class="item {{item.ref}}">
+                <img src="https://drive.google.com/uc?export=download&id={{item.id}}">
+            </div>
+            {% endfor %}
+            
+            
+            
+
+        </div>
+        </td>
+    </table>
+    <div class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01" src="">
+    </div>
+
+    <script src="{{ url_for('static', filename='js/jquery-3.5.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/isotope.pkgd.min.js') }}"></script>
+</body>
+</html>
